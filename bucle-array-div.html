@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+        #capa_0, #capa_1, #capa_2, #capa_3, #capa_4, #capa_5  {padding:30px 0 0 30%;}
+        #capa_1 {margin-left: 10%;}
+        #capa_2 {margin-left: 40%;}
+        #capa_3 {margin-left: 10%;}
+        #capa_4 {margin-left: 40%;}
+        #capa_5 {margin-left: 10%;}
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!--<script>
+        var fruits = ["Orange", "Apple", "Banana", "Mango", "Poma", "Taronge"];
+
+        for (i = 1; i < fruits.length; i++) {
+            document.write(fruits[i] + "<br>");
+        }
+
+    </script>-->
+
+    
+    <input type="button" value="Clica" onClick="funcionar()" id="boto_funcionar">
+    <div id="capa_0"></div>
+    <div id="capa_1"></div>
+    <div id="capa_2"></div>
+    <div id="capa_3"></div>
+    <div id="capa_4"></div>
+    <div id="capa_5"></div>
+
+
+    <script>
+        var fruits = ["Orange", "Apple", "Banana", "Mango", "Kiwi", "Watermelon"];
+        var capa = 0;
+        var i = 0;
+    
+        function funcionar(){
+        for (i = 0; i < 6; i++) {
+            capa = document.getElementById("capa_" + i);
+            capa.innerHTML = "Every " + fruits[i] + " in a box <br>";
+            }
+        }
+
+        document.getElementById("demo").innerHTML = text;
+    </script>
+
+</body>
