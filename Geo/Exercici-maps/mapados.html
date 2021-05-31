@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Leaflet Cluster </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO 8859-1" />
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
+    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
+</head>
+
+<body>
+    <h1>Mapa </h1>
+    <br class="clear">
+    <p>Mapa interactiu amb adreces </p>
+    <br class="clear">
+    <div id="map" style="width: device-width; height: 500px; border: 1px solid #AAA;"></div>
+
+    <script type='text/javascript' src='maps/markers.js'></script>
+    <script type='text/javascript' src='maps/leaf-demo.js'></script>
+    
+    <script>
+        
+        function getElementsByClass(className) {
+            var all = document.all ? document.all : document.getElementsByTagName('*');
+            var elements = new Array();
+            for (var e = 0; e < all.length; e++) {
+                if (all[e].className == className)
+                    elements[elements.length] = all[e];
+            }
+            return elements;
+        }
+
+        function popup(elmClass, width, height) {
+            var popupElms = getElementsByClass(elmClass);
+            for (var i = 0; i < popupElms.length; i++) {
+                var popupElm = popupElms[i];
+                popupElm.onclick = function () {
+                    var popupElmURL = this.getAttribute('href');
+                    var popupElmTitle = this.getAttribute('title');
+                    if (width && height) {
+                        var windowSize = 'width=' + width + ',' + 'height=' + height;
+                    }
+                    var popup = window.open(popupElmURL, popupElmTitle, windowSize);
+                    return false;
+                }
+            }
+        }
+
+        window.onload = function () {
+            popup('popup', 300, 300);
+        }</script>
+
+
+</body>
+
+</html>
